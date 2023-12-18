@@ -1,13 +1,5 @@
 <mat-toolbar>
 
-  <button mat-button color="primary" [matMenuTriggerFor]="menu">
-    <mat-icon>format_color_fill</mat-icon>
-  </button>
-
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>{{1}}</button>
-    <button mat-menu-item>{{2}}</button>
-  </mat-menu>
 
   <div class="settings" [matMenuTriggerFor]="settings" *ngIf="isRdcGamePage">
     <button mat-button color="accent">
@@ -17,9 +9,7 @@
 
 
   <mat-menu #settings="matMenu">
-    <div class="setting-menu-wrapper">
-      configurer votre partie
-    </div>
+    <button mat-menu-item [routerLink]="['/', 'rdc', 'settings']">Modifer les paramètres de la partie</button>
   </mat-menu>
 
 </mat-toolbar>

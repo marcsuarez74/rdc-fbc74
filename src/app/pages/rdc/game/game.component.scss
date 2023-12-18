@@ -54,16 +54,22 @@
 
   .rdc-game-footer {
     position: fixed;
-    bottom: 32px;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     width: 100%;
 
 
     button {
+
+      border-radius: 0 !important;
+
+      &.player-score {
+        --mdc-filled-button-container-color: #36f4db
+      }
+
       height: 60px !important;
       --mdc-filled-button-label-text-size: 40px;
       &.generate-game {
@@ -77,15 +83,23 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 300px;
     background-color: var(--rdc-primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     padding: 24px;
     height: 300px;
+    width: 350px;
     border-radius: 8px;
     color: #fff;
+
+    &--wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-size: 80px;
+      gap: 37px;
+    }
   }
 
 }

@@ -21,7 +21,9 @@ export class GameComponent implements OnInit, OnDestroy {
   listOfRandomMatch: IPlayer[][] = [];
   rdcGameSetting: IRdcPartySettings;
   gameRunning = false;
+  gamePause = false;
   rdcTimer: string | null ;
+  currentTime: number | undefined;
 
   #intervalId: number | null = null;
 
@@ -36,9 +38,9 @@ export class GameComponent implements OnInit, OnDestroy {
     }
 
     // Prevent re-loading page
-    // window.onbeforeunload = (event) => {
-    //   event.returnValue = 'Attention si vous rechargez la page, tout sera perdu'
-    // };
+    window.onbeforeunload = (event) => {
+      event.returnValue = 'Attention si vous rechargez la page, tout sera perdu'
+    };
 
 
     this.#subs.add(
@@ -52,15 +54,21 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   runGame(): void {
-    let time = this.rdcGameSetting.match_time;
+    if (!this.currentTime) {
+      this.currentTime = this.rdcGameSetting.match_time
+    }
+
     this.gameRunning = true;
     if (this.#intervalId === null) {
       this.#intervalId = setInterval(() => {
-        time--;
-        if (time <= 0) {
-          this.stopGame();
+        if (this.currentTime) {
+          this.currentTime--;
+          if (this.currentTime <= 0) {
+            this.stopGame();
+          }
+          this.updateDisplay(this.currentTime);
         }
-        this.updateDisplay(time);
+
       }, 1000);
     }
   }
@@ -70,8 +78,22 @@ export class GameComponent implements OnInit, OnDestroy {
       clearInterval(this.#intervalId);
       this.#intervalId = null;
       this.rdcTimer = null;
+      this.currentTime = undefined;
       this.gameRunning = false
     }
+  }
+
+  pauseGame(): void {
+    this.gamePause = true
+    if (this.#intervalId !== null) {
+      clearInterval(this.#intervalId);
+      this.#intervalId = null;
+    }
+  }
+
+  playGame(): void {
+    this.gamePause = false
+    this.runGame()
   }
 
   updateDisplay(duration: number = this.rdcGameSetting.match_time): void {

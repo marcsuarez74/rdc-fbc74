@@ -18,17 +18,30 @@
 
 <div class="rdc-game-footer">
 
-  <button [disabled]="gameRunning" class="generate-game" mat-flat-button color="primary" (click)="generatePlayerLists()">
+  <button mat-flat-button color="accent" (click)=" gameRunning ? stopGame() : runGame()">
+    {{gameRunning ? 'Stopper la partie' : 'Lancer la partie'}}
+  </button>
+
+  <button [disabled]="gameRunning" class="generate-game" mat-flat-button color="primary"
+          (click)="generatePlayerLists()">
     Génerer une nouvelle partie
   </button>
 
-  <button mat-flat-button color="accent" (click)=" gameRunning ? stopGame() : runGame()">
-    {{gameRunning ? 'Stopper la partie' : 'Lancer la partie'}}
+
+  <button class="player-score" mat-flat-button color="warn" [disabled]="gameRunning">
+    Saisir le score des joueurs
   </button>
 
 </div>
 
 
 <div class="rdc-timer" *ngIf="gameRunning && rdcTimer">
-  {{rdcTimer}}
+  <div class="rdc-timer--wrapper">
+    <span>{{rdcTimer}}</span>
+
+    <button mat-flat-button color="accent" (click)="gamePause? playGame() : pauseGame()">
+      {{gamePause ? 'Continuer' : 'Pause'}}
+    </button>
+  </div>
+
 </div>

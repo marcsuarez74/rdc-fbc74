@@ -19,6 +19,7 @@ import {
 import { debounceTime } from "rxjs";
 import { Router, RouterModule } from "@angular/router";
 import { RdcGameService } from "@rdc/services/rdc-game.service";
+import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
 
 export interface IRdcPartySettings {
   id?: string;
@@ -30,7 +31,7 @@ export interface IRdcPartySettings {
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatStepperModule, ReactiveFormsModule, MatInputModule, MatButtonModule, PlayersSettingsComponent, PlayersListComponent, CountFieldSettingsComponent, MatchTimeSettingsComponent, RouterModule],
+  imports: [CommonModule, MatCardModule, MatStepperModule, ReactiveFormsModule, MatInputModule, MatButtonModule, PlayersSettingsComponent, PlayersListComponent, CountFieldSettingsComponent, MatchTimeSettingsComponent, RouterModule, MatSnackBarModule],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss'
 })
@@ -38,6 +39,7 @@ export class SettingsComponent implements OnInit {
 
   readonly router = inject(Router);
   readonly rdcGameService = inject(RdcGameService)
+  readonly snackBar = inject(MatSnackBar);
 
   playerList: IPlayer[] = [];
   isEditionMode: boolean = false;
@@ -58,23 +60,26 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit(): void {
 
+
     const rdcGameStore = localStorage.getItem('rdc-fbc74-game')
     console.log('rdcGameStore', rdcGameStore);
 
     if (rdcGameStore && rdcGameStore !== '') {
+
+      this.snackBar.open('Nous avons trouvé une partie existante, souhaitez vous la garder ? Cliquer sur "Non" pour réinitialiser la partie', 'Non', {duration: 10000, }).onAction().subscribe((v) => {
+        console.log('action call');
+        this.resetParty()
+      })
+
+
       const rdcGame = JSON.parse(rdcGameStore);
 
       if (rdcGame) {
         this.rdcPartySettings = rdcGame;
-        console.log('this.rdcPartySettings', this.rdcPartySettings);
         this.filteredPlayerList = this.rdcPartySettings.players;
         this.playerList = this.rdcPartySettings.players;
       }
     }
-
-
-
-
 
     this.searchPlayerForm.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
       if (!value) {
@@ -138,6 +143,16 @@ export class SettingsComponent implements OnInit {
     this.rdcGameService.gameSetting$.next({...this.rdcPartySettings, id: partyId})
     localStorage.setItem(`rdc-fbc74-game`, JSON.stringify({...this.rdcPartySettings, id: partyId}))
     void this.router.navigate([`/rdc/${partyId}/game`])
+  }
+
+  resetParty(): void  {
+    localStorage.removeItem('rdc-fbc74-game');
+    this.rdcPartySettings = {
+      players: [],
+      count_field: 5,
+      match_time: 500
+    }
+    this.rdcGameService.gameSetting$.next(this.rdcPartySettings)
   }
 
 
