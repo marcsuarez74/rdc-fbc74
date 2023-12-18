@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1702899514490,
-  "index": "/rdc-fbc74/index.html",
+  "timestamp": 1702900009026,
+  "index": "/rdc-fbc74/browser/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,12 +11,12 @@
         "ignoreVary": true
       },
       "urls": [
-        "/rdc-fbc74/favicon.ico",
-        "/rdc-fbc74/index.html",
-        "/rdc-fbc74/main-FCD2ZSKZ.js",
-        "/rdc-fbc74/manifest.webmanifest",
-        "/rdc-fbc74/polyfills-LZBJRJJE.js",
-        "/rdc-fbc74/styles-EU5BWHJ4.css"
+        "/rdc-fbc74/browser/favicon.ico",
+        "/rdc-fbc74/browser/index.html",
+        "/rdc-fbc74/browser/main-FCD2ZSKZ.js",
+        "/rdc-fbc74/browser/manifest.webmanifest",
+        "/rdc-fbc74/browser/polyfills-LZBJRJJE.js",
+        "/rdc-fbc74/browser/styles-EU5BWHJ4.css"
       ],
       "patterns": []
     },
@@ -28,46 +28,46 @@
         "ignoreVary": true
       },
       "urls": [
-        "/rdc-fbc74/assets/icons/icon-128x128.png",
-        "/rdc-fbc74/assets/icons/icon-144x144.png",
-        "/rdc-fbc74/assets/icons/icon-152x152.png",
-        "/rdc-fbc74/assets/icons/icon-192x192.png",
-        "/rdc-fbc74/assets/icons/icon-384x384.png",
-        "/rdc-fbc74/assets/icons/icon-512x512.png",
-        "/rdc-fbc74/assets/icons/icon-72x72.png",
-        "/rdc-fbc74/assets/icons/icon-96x96.png",
-        "/rdc-fbc74/assets/images/fbc74-logo.webp",
-        "/rdc-fbc74/assets/images/gif/noel/giphy-boy-gift.gif",
-        "/rdc-fbc74/assets/images/gif/noel/giphy-dog-christmas.gif",
-        "/rdc-fbc74/assets/images/gif/noel/giphy-hamster-2.gif",
-        "/rdc-fbc74/assets/images/gif/noel/giphy-hamster.gif",
-        "/rdc-fbc74/assets/images/gif/noel/santa.gif"
+        "/rdc-fbc74/browser/assets/icons/icon-128x128.png",
+        "/rdc-fbc74/browser/assets/icons/icon-144x144.png",
+        "/rdc-fbc74/browser/assets/icons/icon-152x152.png",
+        "/rdc-fbc74/browser/assets/icons/icon-192x192.png",
+        "/rdc-fbc74/browser/assets/icons/icon-384x384.png",
+        "/rdc-fbc74/browser/assets/icons/icon-512x512.png",
+        "/rdc-fbc74/browser/assets/icons/icon-72x72.png",
+        "/rdc-fbc74/browser/assets/icons/icon-96x96.png",
+        "/rdc-fbc74/browser/assets/images/fbc74-logo.webp",
+        "/rdc-fbc74/browser/assets/images/gif/noel/giphy-boy-gift.gif",
+        "/rdc-fbc74/browser/assets/images/gif/noel/giphy-dog-christmas.gif",
+        "/rdc-fbc74/browser/assets/images/gif/noel/giphy-hamster-2.gif",
+        "/rdc-fbc74/browser/assets/images/gif/noel/giphy-hamster.gif",
+        "/rdc-fbc74/browser/assets/images/gif/noel/santa.gif"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/rdc-fbc74/assets/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
-    "/rdc-fbc74/assets/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
-    "/rdc-fbc74/assets/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
-    "/rdc-fbc74/assets/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
-    "/rdc-fbc74/assets/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
-    "/rdc-fbc74/assets/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
-    "/rdc-fbc74/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
-    "/rdc-fbc74/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/rdc-fbc74/assets/images/fbc74-logo.webp": "4c9fa11bd370367da0db2d167aa81ff61b167951",
-    "/rdc-fbc74/assets/images/gif/noel/giphy-boy-gift.gif": "c97d5571bfc297da3cf1f31cb6d10f6fdcc5da4d",
-    "/rdc-fbc74/assets/images/gif/noel/giphy-dog-christmas.gif": "1616a0d696d2579336434cd0c53acb3c114add52",
-    "/rdc-fbc74/assets/images/gif/noel/giphy-hamster-2.gif": "6e6c3712ae0768a5ee8c9d122b6e9d3c70b1b4e2",
-    "/rdc-fbc74/assets/images/gif/noel/giphy-hamster.gif": "a3b1e5c2afcd90bd273bd82cae97bb9d7fce08eb",
-    "/rdc-fbc74/assets/images/gif/noel/santa.gif": "10460f109737e7bc7feb808e1e2aac3ea12440aa",
-    "/rdc-fbc74/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/rdc-fbc74/index.html": "b402804a3fe6fe3791f0ed3dafcc5a3518c9cedf",
-    "/rdc-fbc74/main-FCD2ZSKZ.js": "fdaf72ecce44054fafab13951c4596af072f6107",
-    "/rdc-fbc74/manifest.webmanifest": "e1a486fdfdcd05ba10003e9bef9a89cc582e9660",
-    "/rdc-fbc74/polyfills-LZBJRJJE.js": "fda1c82c5c620f1fa442f687b3df45a037f6fcc9",
-    "/rdc-fbc74/styles-EU5BWHJ4.css": "597253c254917884d173bbda18993c588fa61434"
+    "/rdc-fbc74/browser/assets/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "/rdc-fbc74/browser/assets/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "/rdc-fbc74/browser/assets/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "/rdc-fbc74/browser/assets/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "/rdc-fbc74/browser/assets/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "/rdc-fbc74/browser/assets/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "/rdc-fbc74/browser/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "/rdc-fbc74/browser/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "/rdc-fbc74/browser/assets/images/fbc74-logo.webp": "4c9fa11bd370367da0db2d167aa81ff61b167951",
+    "/rdc-fbc74/browser/assets/images/gif/noel/giphy-boy-gift.gif": "c97d5571bfc297da3cf1f31cb6d10f6fdcc5da4d",
+    "/rdc-fbc74/browser/assets/images/gif/noel/giphy-dog-christmas.gif": "1616a0d696d2579336434cd0c53acb3c114add52",
+    "/rdc-fbc74/browser/assets/images/gif/noel/giphy-hamster-2.gif": "6e6c3712ae0768a5ee8c9d122b6e9d3c70b1b4e2",
+    "/rdc-fbc74/browser/assets/images/gif/noel/giphy-hamster.gif": "a3b1e5c2afcd90bd273bd82cae97bb9d7fce08eb",
+    "/rdc-fbc74/browser/assets/images/gif/noel/santa.gif": "10460f109737e7bc7feb808e1e2aac3ea12440aa",
+    "/rdc-fbc74/browser/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/rdc-fbc74/browser/index.html": "955fc32bf250253feca88a8e86f640a0495736b0",
+    "/rdc-fbc74/browser/main-FCD2ZSKZ.js": "fdaf72ecce44054fafab13951c4596af072f6107",
+    "/rdc-fbc74/browser/manifest.webmanifest": "e1a486fdfdcd05ba10003e9bef9a89cc582e9660",
+    "/rdc-fbc74/browser/polyfills-LZBJRJJE.js": "fda1c82c5c620f1fa442f687b3df45a037f6fcc9",
+    "/rdc-fbc74/browser/styles-EU5BWHJ4.css": "597253c254917884d173bbda18993c588fa61434"
   },
   "navigationUrls": [
     {
