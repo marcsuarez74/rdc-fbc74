@@ -1,0 +1,61 @@
+<h1> Configurer votre partie </h1>
+
+<div class="stepper-player-wrapper">
+  <mat-stepper orientation="vertical" [linear]="true" #stepper>
+
+    <mat-step>
+      <ng-template matStepLabel>Ajouter des joueurs</ng-template>
+      <app-players-settings (onAddNewUser)="addNewPlayer($event)"></app-players-settings>
+      <div>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Nombre de terrain</ng-template>
+      <app-count-field-settings (onUpdateCountField)="updateCountField($event)" [field]="rdcPartySettings.count_field"></app-count-field-settings>
+      <div>
+        <button mat-button matStepperPrevious>Precedent</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <form>
+        <ng-template matStepLabel>Durée des matchs</ng-template>
+        <app-match-time-settings (onUpdateMatchTime)="updateMatchTime($event)"></app-match-time-settings>
+        <div>
+          <button mat-button matStepperPrevious>Precedent</button>
+        </div>
+      </form>
+    </mat-step>
+
+  </mat-stepper>
+
+  <app-players-list [playerList]="filteredPlayerList" [editMode]="isEditionMode"></app-players-list>
+
+  <div class="actions-player-list">
+    <button mat-flat-button color="warn" [disabled]="playerList.length === 0" (click)="removeAllPlayers()">Supprimer tous les joueurs</button>
+    <button mat-flat-button color="primary" [disabled]="playerList.length === 0" (click)="updatePlayerList()">
+      <span *ngIf="!isEditionMode">Modifier la liste</span>
+      <span *ngIf="isEditionMode">Annuler les modifications</span>
+    </button>
+    <mat-form-field appearance="outline">
+      <mat-label>Rechercher un joueur</mat-label>
+      <input matInput type="text" [formControl]="searchPlayerForm"/>
+    </mat-form-field>
+
+    <button mat-button *ngIf="isEditionMode" [disabled]="disabledBtnRemoveSelection" (click)="removeSelection()">
+      Supprimer la selection
+    </button>
+  </div>
+</div>
+
+
+<div class="buttons-block">
+  <button mat-flat-button color="primary" [disabled]="rdcPartySettings.players.length === 0 || rdcPartySettings.count_field === 0 || rdcPartySettings.match_time === 0" (click)="runGame()">
+    Valider et commencer
+  </button>
+</div>
+
+

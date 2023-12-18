@@ -1,0 +1,38 @@
+$primary-color: var(--rdc-primary-color, #004b9c);
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 128px);
+  gap: 32px;
+  padding: 32px;
+  flex-wrap: wrap;
+
+  .main-star-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .game-title {
+    color: $primary-color;
+    font-size: 60px;
+    text-align: center;
+    line-height: 65px;
+  }
+
+  .gif-container {
+    @media (max-width: 1250px) {
+      display: none;
+    }
+  }
+
+  img {
+    width: 200px;
+
+
+  }
+}

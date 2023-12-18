@@ -1,0 +1,5 @@
+<mat-form-field appearance="outline">
+  <mat-label>Nom du joueur</mat-label>
+  <input matInput [formControl]="playersForm" type="text" (keyup.enter)="addNewPlayer()"/>
+</mat-form-field>
+

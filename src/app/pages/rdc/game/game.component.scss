@@ -1,0 +1,91 @@
+:host {
+  display: block;
+  width: 100%;
+  height: calc(100% - 64px);
+
+  .field-container {
+    display: flex;
+    align-items: center;
+    padding: 32px;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: space-around;
+
+    &.disabled {
+      opacity: .2;
+    }
+
+    .match-block {
+      border-radius: 8px;
+      display: flex;
+      width: 200px;
+      height: 200px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: var(--rdc-primary-color);
+      color: #fff;
+
+       &--player {
+         width: 47%;
+         height: 47%;
+         border: 1px solid #fff;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         padding: 2px;
+
+         span {
+           max-width: 100%;
+           text-overflow: ellipsis;
+           overflow: hidden;
+         }
+       }
+
+      &--empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+
+    }
+  }
+
+  .rdc-game-footer {
+    position: fixed;
+    bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+
+    button {
+      height: 60px !important;
+      --mdc-filled-button-label-text-size: 40px;
+      &.generate-game {
+        --mdc-filled-button-container-color: #{var(--rdc-primary-color)}
+      }
+    }
+  }
+
+  .rdc-timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 300px;
+    background-color: var(--rdc-primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    height: 300px;
+    border-radius: 8px;
+    color: #fff;
+  }
+
+}

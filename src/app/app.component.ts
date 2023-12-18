@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { RdcNavbarComponent } from "@rdc/components/rdc-navbar/rdc-navbar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, MatToolbarModule, RdcNavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'rdc-fbc74';
+  title = 'rdc';
 }

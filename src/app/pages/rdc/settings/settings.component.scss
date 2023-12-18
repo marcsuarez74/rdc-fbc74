@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 64px);
+  flex-direction: column;
+  gap: 60px;
+
+  --mat-stepper-header-selected-state-icon-background-color: #{var(--rdc-primary-color)};
+  --mat-stepper-header-edit-state-icon-background-color: #{var(--rdc-primary-color)};
+
+
+  h1 {
+    color: var(--rdc-primary-color);
+    font-size: 60px;
+    text-align: center;
+    line-height: 65px;
+  }
+
+  .stepper-player-wrapper {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .actions-player-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

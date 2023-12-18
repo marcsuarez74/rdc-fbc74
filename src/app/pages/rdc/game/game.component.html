@@ -1,0 +1,34 @@
+<div class="field-container" [class.disabled]="gameRunning">
+
+  <div class="match-block" *ngFor="let match of listOfRandomMatch; let i = index">
+    <div class="match-block--empty" *ngIf="match.length === 0">
+      Terrain vide
+    </div>
+
+    <div class="match-block--player" *ngFor="let player of match; let iP = index">
+      <span>{{player.name}}</span>
+      <span *ngIf="iP < 2">Equipe 1</span>
+      <span *ngIf="iP >= 2 ">Equipe 2</span>
+      <i>({{player.score}})</i>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="rdc-game-footer">
+
+  <button [disabled]="gameRunning" class="generate-game" mat-flat-button color="primary" (click)="generatePlayerLists()">
+    Génerer une nouvelle partie
+  </button>
+
+  <button mat-flat-button color="accent" (click)=" gameRunning ? stopGame() : runGame()">
+    {{gameRunning ? 'Stopper la partie' : 'Lancer la partie'}}
+  </button>
+
+</div>
+
+
+<div class="rdc-timer" *ngIf="gameRunning && rdcTimer">
+  {{rdcTimer}}
+</div>

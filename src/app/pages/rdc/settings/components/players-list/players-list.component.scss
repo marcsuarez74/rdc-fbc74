@@ -1,0 +1,46 @@
+:host {
+  background: var(--rdc-light-grey);
+  padding: 24px;
+  border-radius: 8px;
+  width: 400px;
+  overflow: auto;
+  max-height: 100%;
+
+  --mdc-checkbox-unselected-icon-color: var(--white, #fff);
+
+  .empty-list {
+    margin: auto 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .player-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    .player {
+      background: var(--rdc-primary-color);
+      color: var(--white, #fff);
+      font-size: 14px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+
+      &.no-edition {
+        padding: calc((var(--mdc-checkbox-state-layer-size) - 18px) / 2);
+      }
+
+      span {
+        padding-right: 16px;
+      }
+    }
+
+  }
+
+
+
+}

@@ -1,0 +1,11 @@
+<div class="empty-list" *ngIf="playerList.length === 0">Aucun Joueur pour l'instant</div>
+<div class="player-list" *ngIf="playerList.length > 0">
+  <div class="player" [class.no-edition]="!editMode" *ngFor="let player of playerList">
+    <mat-checkbox
+      *ngIf="editMode"
+      [checked]="player.selected" [(ngModel)]="player.selected"
+                  color="accent"></mat-checkbox>
+    <span> {{player.name}} </span>
+  </div>
+
+</div>
