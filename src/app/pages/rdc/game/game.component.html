@@ -1,6 +1,6 @@
 <div class="field-container" [class.disabled]="gameRunning">
 
-  <div class="match-block" *ngFor="let match of listOfRandomMatch; let i = index">
+  <div class="match-block" [class.field-added-more]="i+1 > rdcGameSetting.count_field" *ngFor="let match of listOfRandomMatch; let i = index">
     <div class="match-block--empty" *ngIf="match.length === 0">
       Terrain vide
     </div>
@@ -14,6 +14,15 @@
 
   </div>
 
+</div>
+
+<div class="waiting-list" *ngIf="waitingList.length  > 0">
+
+  Liste des joueurs en attente :
+
+  <div class="waiting-list--player" *ngFor="let player of waitingList">
+    {{player.name}}
+  </div>
 </div>
 
 <div class="rdc-game-footer">

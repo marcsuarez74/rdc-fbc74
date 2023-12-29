@@ -62,15 +62,12 @@ export class SettingsComponent implements OnInit {
 
 
     const rdcGameStore = localStorage.getItem('rdc-fbc74-game')
-    console.log('rdcGameStore', rdcGameStore);
 
     if (rdcGameStore && rdcGameStore !== '') {
 
       this.snackBar.open('Nous avons trouvé une partie existante, souhaitez vous la garder ? Cliquer sur "Non" pour réinitialiser la partie', 'Non', {duration: 10000, }).onAction().subscribe((v) => {
-        console.log('action call');
         this.resetParty()
       })
-
 
       const rdcGame = JSON.parse(rdcGameStore);
 
@@ -140,7 +137,12 @@ export class SettingsComponent implements OnInit {
 
   runGame(): void {
     const partyId = Array.from({ length: 6 }, () => 'abcdefghijklmnopqrstuvwxyz0123456789'[Math.floor(Math.random() * 36)]).join('');
-    this.rdcGameService.gameSetting$.next({...this.rdcPartySettings, id: partyId})
+    this.rdcGameService.gameSetting$.next({...this.rdcPartySettings, id: partyId});
+
+    if (localStorage.getItem('rdc-fbc74-game')) {
+      localStorage.removeItem('rdc-fbc74-game')
+    }
+
     localStorage.setItem(`rdc-fbc74-game`, JSON.stringify({...this.rdcPartySettings, id: partyId}))
     void this.router.navigate([`/rdc/${partyId}/game`])
   }
@@ -152,6 +154,9 @@ export class SettingsComponent implements OnInit {
       count_field: 5,
       match_time: 500
     }
+
+    this.filteredPlayerList = [];
+    this.playerList = [];
     this.rdcGameService.gameSetting$.next(this.rdcPartySettings)
   }
 

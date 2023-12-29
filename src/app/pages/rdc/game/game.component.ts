@@ -6,6 +6,7 @@ import { ActivatedRoute } from "@angular/router";
 import { IRdcPartySettings } from "@rdc/pages/rdc/settings/settings.component";
 import { IPlayer } from "@rdc/pages/rdc/settings/components/players-settings/players-settings.component";
 import { MatButtonModule } from "@angular/material/button";
+import { RdcGamePlayersService } from "@rdc/pages/rdc/game/game.service";
 
 @Component({
   selector: 'app-game',
@@ -17,13 +18,16 @@ import { MatButtonModule } from "@angular/material/button";
 export class GameComponent implements OnInit, OnDestroy {
   readonly rdcGameService = inject(RdcGameService);
   readonly route = inject(ActivatedRoute);
+  readonly rdcGamePlayerService = inject(RdcGamePlayersService)
 
   listOfRandomMatch: IPlayer[][] = [];
   rdcGameSetting: IRdcPartySettings;
   gameRunning = false;
   gamePause = false;
-  rdcTimer: string | null ;
+  rdcTimer: string | null;
   currentTime: number | undefined;
+
+  waitingList: IPlayer[] = [];
 
   #intervalId: number | null = null;
 
@@ -103,26 +107,22 @@ export class GameComponent implements OnInit, OnDestroy {
     this.rdcTimer = formattedTime
   }
 
+
   generatePlayerLists(players: IPlayer[] = this.rdcGameSetting.players, numberOfLists: number = this.rdcGameSetting.count_field): void {
+    this.listOfRandomMatch = [];
     if (players.length < 4 || numberOfLists === 0) {
       return;
     }
 
-    const result: IPlayer[][] = [];
-    const playersCopy = [...players]; // Copie de la liste de joueurs
+    const result = this.rdcGamePlayerService.assignTeams(this.rdcGameSetting.players, this.rdcGameSetting.count_field)
+    this.listOfRandomMatch = result.teams;
+    this.waitingList = result.waitingList;
 
-    for (let i = 0; i < numberOfLists; i++) {
-      const shuffledPlayers = playersCopy.sort(() => Math.random() - 0.5);
-      result.push(shuffledPlayers.splice(0, 4));
-    }
+    const flatMatch = result.teams.flatMap(v => v);
+    const intersection = flatMatch.filter(pl1 => result.waitingList.includes(pl1))
+    console.log('intersection', intersection);
 
-    // Le reste des joueurs dans des tableaux de 4 joueurs maximum
-    while (playersCopy.length > 0) {
-      result.push(playersCopy.splice(0, 4));
-    }
-
-    this.listOfRandomMatch = result;
-    console.log('this.listOfRandomMatch', this.listOfRandomMatch);
+    
   }
 
   ngOnDestroy() {

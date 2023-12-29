@@ -8,6 +8,7 @@
     align-items: center;
     padding: 32px;
     flex-wrap: wrap;
+    margin-bottom: 120px;
     gap: 100px;
     justify-content: space-around;
 
@@ -24,6 +25,10 @@
       flex-wrap: wrap;
       background-color: var(--rdc-primary-color);
       color: #fff;
+
+      &.field-added-more {
+        background: #880e4f;
+      }
 
        &--player {
          width: 47%;
@@ -49,6 +54,28 @@
         width: 100%;
       }
 
+    }
+  }
+
+  .waiting-list {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: #880e4f;
+    border-radius: 8px;
+    width: 300px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding: 32px;
+
+    &--player {
+      padding: 4px;
+      border-radius: 4px;
+      background: #460729;
+      color: #fff;
+      font-size: 14px;
     }
   }
 

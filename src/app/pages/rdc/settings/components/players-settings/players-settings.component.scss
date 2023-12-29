@@ -1,4 +1,9 @@
 :host {
   display: block;
   padding: 32px;
+
+  mat-hint {
+    font-size: 10px;
+  }
+
 }

@@ -17,7 +17,8 @@ import { debounce, debounceTime, Subscription } from "rxjs";
 export interface IPlayer {
   name: string;
   score: number;
-  selected: boolean
+  selected?: boolean;
+  inWaitingList: boolean;
 }
 
 @Component({
@@ -37,11 +38,12 @@ export class PlayersSettingsComponent {
 
 
   addNewPlayer(): void {
-    if (this.playersForm.valid && this.playersForm?.value.length > 3) {
+    if (this.playersForm.valid && this.playersForm?.value?.length > 3) {
       this.onAddNewUser.emit({
         name: this.playersForm.value,
         score: 0,
-        selected: false
+        selected: false,
+        inWaitingList: false,
       });
       this.playersForm.reset();
     }
