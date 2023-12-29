@@ -122,7 +122,7 @@ export class GameComponent implements OnInit, OnDestroy {
     const intersection = flatMatch.filter(pl1 => result.waitingList.includes(pl1))
     console.log('intersection', intersection);
 
-    
+
   }
 
   ngOnDestroy() {
