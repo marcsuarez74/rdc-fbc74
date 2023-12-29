@@ -34,16 +34,16 @@ export class PlayersSettingsComponent {
 
   readonly fb = inject(FormBuilder)
 
-  playersForm: FormControl = new FormControl('', [Validators.minLength(3)])
+  playersForm: FormControl = new FormControl('' )
 
 
   addNewPlayer(): void {
-    if (this.playersForm.valid && this.playersForm?.value?.length > 3) {
+    if (this.playersForm.valid && this.playersForm?.value?.length >= 1) {
       this.onAddNewUser.emit({
         name: this.playersForm.value,
         score: 0,
         selected: false,
-        inWaitingList: false,
+        inWaitingList: true,
       });
       this.playersForm.reset();
     }

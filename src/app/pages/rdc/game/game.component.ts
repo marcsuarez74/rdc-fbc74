@@ -6,7 +6,7 @@ import { ActivatedRoute } from "@angular/router";
 import { IRdcPartySettings } from "@rdc/pages/rdc/settings/settings.component";
 import { IPlayer } from "@rdc/pages/rdc/settings/components/players-settings/players-settings.component";
 import { MatButtonModule } from "@angular/material/button";
-import { RdcGamePlayersService } from "@rdc/pages/rdc/game/game.service";
+import { RdcGamePlayersService, Team } from "@rdc/pages/rdc/game/game.service";
 
 @Component({
   selector: 'app-game',
@@ -28,6 +28,9 @@ export class GameComponent implements OnInit, OnDestroy {
   currentTime: number | undefined;
 
   waitingList: IPlayer[] = [];
+
+  listOfWaitingList: IPlayer[][] = [];
+  listOfTeams: IPlayer[][] = []
 
   #intervalId: number | null = null;
 
@@ -115,13 +118,24 @@ export class GameComponent implements OnInit, OnDestroy {
     }
 
     const result = this.rdcGamePlayerService.assignTeams(this.rdcGameSetting.players, this.rdcGameSetting.count_field)
-    this.listOfRandomMatch = result.teams;
+
+    this.listOfRandomMatch = result.teams.map((team) => team.players);
     this.waitingList = result.waitingList;
 
-    const flatMatch = result.teams.flatMap(v => v);
-    const intersection = flatMatch.filter(pl1 => result.waitingList.includes(pl1))
-    console.log('intersection', intersection);
+    this.listOfWaitingList.push(result.waitingList.sort((a, b) => Number(a.name) - Number(b.name)))
+    this.listOfTeams.push(result.teams.flatMap(team => team.players).sort((a, b) => Number(a.name) - Number(b.name)))
 
+
+    // update the current player list too know
+    this.rdcGameSetting.players = this.rdcGameSetting.players.reduce((acc: IPlayer[] ,curr)=>{
+      const stored = result.waitingList.find(({name})=>name===curr.name);
+      if(stored){
+        acc.push(stored);
+      } else {
+        acc.push({...curr, inWaitingList: false});
+      }
+      return acc;
+    }, []);
 
   }
 

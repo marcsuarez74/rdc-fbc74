@@ -79,6 +79,21 @@
     }
   }
 
+  .list-of-teams-list-container,
+  .list-of-waiting-list-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 32px;
+    min-height: 400px;
+  }
+
+
+  .rdc-game-history {
+    background-color: #004b9c;
+
+  }
+
   .rdc-game-footer {
     position: fixed;
     bottom: 0px;

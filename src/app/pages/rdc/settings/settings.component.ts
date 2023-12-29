@@ -109,7 +109,9 @@ export class SettingsComponent implements OnInit {
           ...player,
           selected :false
         }
-      })
+      });
+
+      this.playerList = this.filteredPlayerList;
     }
   }
 

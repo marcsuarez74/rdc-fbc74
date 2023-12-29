@@ -25,7 +25,31 @@
   </div>
 </div>
 
+
+
+
 <div class="rdc-game-footer">
+
+<!--  <div class="list-of-waiting-list-container">-->
+<!--    liste des joueurs en attente-->
+<!--    <div class="list-of-waiting-list" *ngFor="let waitingList of listOfWaitingList">-->
+<!--      <strong>{{waitingList.length}}</strong>-->
+<!--      <div class="player" *ngFor="let player of waitingList">{{player.name}}</div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+<!--  <div class="list-of-teams-list-container">-->
+<!--    liste des joueurs-->
+<!--    <div class="list-of-teams-list" *ngFor="let teams of listOfTeams">-->
+
+<!--      <strong>{{teams.length}}</strong>-->
+
+<!--      <div class="team" *ngFor="let player of teams; let i = index; let last = last">-->
+<!--        {{player.name}}-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <button mat-flat-button color="accent" (click)=" gameRunning ? stopGame() : runGame()">
     {{gameRunning ? 'Stopper la partie' : 'Lancer la partie'}}
